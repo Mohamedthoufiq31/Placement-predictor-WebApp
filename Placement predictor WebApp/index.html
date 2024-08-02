@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="feature1">Feature 1:</label>
+            <input type="text" name="feature1" id="feature1" required>
+            <label for="feature2">Feature 2:</label>
+            <input type="text" name="feature2" id="feature2" required>
+            <!-- Add more fields as necessary -->
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">
+            {% if prediction_text %}
+                <h2>{{ prediction_text }}</h2>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
